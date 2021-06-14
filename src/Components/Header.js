@@ -38,21 +38,21 @@ export default function Header() {
                       itemIdx === 0 ? (
                         <Fragment key={item}>
                           {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                          <a
-                            href="#"
-                            className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                          >
-                            {item}
-                          </a>
+                          <Link to={item}>
+                            <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
+                              {item}
+                            </div>
+                          </Link>
                         </Fragment>
                       ) : (
-                        <a
-                          key={item}
-                          href="#"
-                          className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                          {item}
-                        </a>
+                        <Link to={item}>
+                          <div
+                            key={item}
+                            className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                          >
+                            {item}
+                          </div>
+                        </Link>
                       )
                     )}
                   </div>
@@ -209,21 +209,24 @@ export default function Header() {
                 itemIdx === 0 ? (
                   <Fragment key={item}>
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <a
-                      href="#"
-                      className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-                    >
-                      {item}
-                    </a>
+                    <Link to={item}>
+                      <div
+                        href="#"
+                        className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+                      >
+                        {item}
+                      </div>
+                    </Link>
                   </Fragment>
                 ) : (
-                  <a
-                    key={item}
-                    href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  >
-                    {item}
-                  </a>
+                  <Link to={item}>
+                    <div
+                      key={item}
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      {item}
+                    </div>
+                  </Link>
                 )
               )}
             </div>
