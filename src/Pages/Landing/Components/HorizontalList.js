@@ -17,14 +17,10 @@ export default function HorizontalList() {
 
   for (let index = 0, i = 0; index < data.length; index++) {
     if (favList.includes(data[index].id)) {
-      console.log("A" + data[index].id);
       data4[i] = data[index];
       i++;
     }
   }
-  if (data4[0].id !== undefined) console.log("ssssssss");
-  else console.log("nnnnn");
-  console.log(data4);
 
   let allList = [];
   const assignToList = (index) => {
@@ -38,7 +34,7 @@ export default function HorizontalList() {
         assignToList(index);
 
         return (
-          <div>
+          <div key={titles[index]}>
             <div className="w-full flex justify-between pr-2">
               <span className="text-2xl font-bold text-gray-900 px-4">
                 {titles[index]}
@@ -59,34 +55,36 @@ export default function HorizontalList() {
                 {allList[0]?.id !== undefined ? (
                   allList?.map((i) => {
                     return (
-                      <Link to={`/ListPage/${i.id}`}>
-                        <div className="p-4">
-                          <div className="wrapper  antialiased text-gray-900 transform transition duration-500 hover:scale-110 cursor-pointer">
-                            <div style={{ width: "300px" }}>
-                              <img
-                                src={i.imageURL}
-                                alt="Cover_Image"
-                                className="w-full object-cover object-center rounded-lg shadow-md"
-                              />
-                              <div className="relative px-4 -mt-16  ">
-                                <div className="bg-white p-6 rounded-lg shadow-lg">
-                                  <h4 className="mt-1 text-xl font-semibold uppercase leading-tight   break-words">
-                                    {i.title}
-                                  </h4>
-                                  <div className="flex items-baseline">
-                                    <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
-                                      {i.category}
-                                    </span>
-                                    <div className="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
-                                      &bull; {i.seenValue} views
+                      <div key={i.id}>
+                        <Link to={`/ListPage/${i.id}`}>
+                          <div className="p-4">
+                            <div className="wrapper  antialiased text-gray-900 transform transition duration-500 hover:scale-110 cursor-pointer">
+                              <div style={{ width: "300px" }}>
+                                <img
+                                  src={i.imageURL}
+                                  alt="Cover_Image"
+                                  className="w-full object-cover object-center rounded-lg shadow-md"
+                                />
+                                <div className="relative px-4 -mt-16  ">
+                                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                                    <h4 className="mt-1 text-xl font-semibold uppercase leading-tight   break-words">
+                                      {i.title}
+                                    </h4>
+                                    <div className="flex items-baseline">
+                                      <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                                        {i.category}
+                                      </span>
+                                      <div className="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+                                        &bull; {i.seenValue} views
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
+                        </Link>
+                      </div>
                     );
                   })
                 ) : (

@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
-        <>
+        <div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
@@ -36,7 +36,7 @@ export default function Header() {
                   <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item, itemIdx) =>
                       itemIdx === 0 ? (
-                        <Fragment key={item}>
+                        <Fragment key={itemIdx}>
                           {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                           <Link to={item}>
                             <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
@@ -91,8 +91,7 @@ export default function Header() {
                             <div className="py-1">
                               <Menu.Item>
                                 {({ active }) => (
-                                  <a
-                                    href="#"
+                                  <div
                                     className={classNames(
                                       active
                                         ? "bg-gray-100 text-gray-900"
@@ -101,13 +100,12 @@ export default function Header() {
                                     )}
                                   >
                                     አማርኛ
-                                  </a>
+                                  </div>
                                 )}
                               </Menu.Item>
                               <Menu.Item>
                                 {({ active }) => (
-                                  <a
-                                    href="#"
+                                  <div
                                     className={classNames(
                                       active
                                         ? "bg-gray-100 text-gray-900"
@@ -116,7 +114,7 @@ export default function Header() {
                                     )}
                                   >
                                     English
-                                  </a>
+                                  </div>
                                 )}
                               </Menu.Item>
                             </div>
@@ -162,15 +160,14 @@ export default function Header() {
                             {profile.map((item) => (
                               <Menu.Item key={item}>
                                 {({ active }) => (
-                                  <a
-                                    href="#"
+                                  <div
                                     className={classNames(
                                       active ? "bg-gray-100" : "",
                                       "block px-4 py-2 text-sm text-gray-700"
                                     )}
                                   >
                                     {item}
-                                  </a>
+                                  </div>
                                 )}
                               </Menu.Item>
                             ))}
@@ -207,13 +204,10 @@ export default function Header() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navigation.map((item, itemIdx) =>
                 itemIdx === 0 ? (
-                  <Fragment key={item}>
+                  <Fragment key={itemIdx}>
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                     <Link to={item}>
-                      <div
-                        href="#"
-                        className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-                      >
+                      <div className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
                         {item}
                       </div>
                     </Link>
@@ -260,8 +254,7 @@ export default function Header() {
                         <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
-                              <a
-                                href="#"
+                              <div
                                 className={classNames(
                                   active
                                     ? "bg-gray-100 text-gray-900"
@@ -270,13 +263,12 @@ export default function Header() {
                                 )}
                               >
                                 አማርኛ
-                              </a>
+                              </div>
                             )}
                           </Menu.Item>
                           <Menu.Item>
                             {({ active }) => (
-                              <a
-                                href="#"
+                              <div
                                 className={classNames(
                                   active
                                     ? "bg-gray-100 text-gray-900"
@@ -285,7 +277,7 @@ export default function Header() {
                                 )}
                               >
                                 English
-                              </a>
+                              </div>
                             )}
                           </Menu.Item>
                         </div>
@@ -321,18 +313,17 @@ export default function Header() {
               </div>
               <div className="mt-3 px-2 space-y-1">
                 {profile.map((item) => (
-                  <a
+                  <div
                     key={item}
-                    href="#"
                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                   >
                     {item}
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>
           </Disclosure.Panel>
-        </>
+        </div>
       )}
     </Disclosure>
   );

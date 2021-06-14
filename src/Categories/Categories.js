@@ -15,10 +15,10 @@ export default function Categories() {
     // )
 
     categoryList.add(data[i].category ?? null);
-    if (categoryList !== undefined) console.log(categoryList);
+    // if (categoryList !== undefined) console.log(categoryList);
   }
 
-  console.log(categoryList);
+  //   console.log(categoryList);
   // const cat
   return (
     <div className="grid grid-cols-2">

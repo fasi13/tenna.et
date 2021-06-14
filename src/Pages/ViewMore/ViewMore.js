@@ -13,7 +13,6 @@ const data3 = data
 
 const assignToList = () => {
   const idd = window.location.pathname.split("/").pop();
-  console.log(idd);
 
   if ("Mostly-Viewed" === idd) allList = data2;
   else if ("Current" === idd) allList = data3;
@@ -25,7 +24,6 @@ const assignToList = () => {
 
     for (let index = 0, i = 0; index < data.length; index++) {
       if (favList.includes(data[index].id)) {
-        console.log(data[index].id);
         data4[i] = data[index];
         i++;
       }

@@ -47,7 +47,6 @@ export default function ListPage() {
                 storedFavList.splice(storedFavList.indexOf(idd), 1);
             }
             localStorage.setItem("favList", JSON.stringify(storedFavList));
-            console.log(storedFavList);
             // storedFavList.indexOf(idd) !== -1 &&
             //   storedFavList.splice(storedFavList.indexOf(idd), 1);
             // storedFavList.split("2");

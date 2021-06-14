@@ -62,6 +62,7 @@ export default function Carousal() {
         {data?.map((i) => {
           return i.isFeatured ? (
             <div
+              key={i.id}
               className="h-72 rounded-md"
               style={{
                 backgroundColor: "grey",
