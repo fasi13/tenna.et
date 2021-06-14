@@ -51,6 +51,7 @@ export default function ViewMore() {
       {allList?.map((i) => {
         return (
           <div
+            key={i.id}
             className=" justify-between m-6 "
             style={{ placeContent: "center" }}
           >

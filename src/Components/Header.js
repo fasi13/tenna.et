@@ -25,13 +25,15 @@ export default function Header() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <img
-                    className="h-8 w-8"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    alt="Workflow"
-                  />
-                </div>
+                <Link to="/Landing">
+                  <div className="flex-shrink-0">
+                    <img
+                      className="h-8 w-8"
+                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                      alt="Workflow"
+                    />
+                  </div>
+                </Link>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item, itemIdx) =>
@@ -180,9 +182,20 @@ export default function Header() {
               </div>
               <div>
                 <form>
-                  <input type="primary" value={query} onChange={handleChange} />
+                  <div className="">
+                    <i className="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>{" "}
+                  </div>
+                  <input
+                    type="text"
+                    className="pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none"
+                    placeholder="Search anything..."
+                    value={query}
+                    onChange={handleChange}
+                  />
                   <Link to={`/ViewMore/Search?query=${query}`}>
-                    <button type="submit">ok</button>
+                    <button className="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600">
+                      Search
+                    </button>{" "}
                   </Link>
                 </form>
               </div>
