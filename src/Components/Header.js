@@ -39,14 +39,15 @@ export default function Header() {
                       itemIdx === 0 ? (
                         <Fragment key={itemIdx}>
                           {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                          <Link to={item}>
+
+                          <Link to="/Landing">
                             <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
                               {item}
                             </div>
                           </Link>
                         </Fragment>
                       ) : (
-                        <Link to={item}>
+                        <Link to="/Landing">
                           <div
                             key={item}
                             className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -195,7 +196,7 @@ export default function Header() {
                 itemIdx === 0 ? (
                   <Fragment key={itemIdx}>
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <Link to={item}>
+                    <Link to="/Landing">
                       <div className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
                         {item}
                       </div>
