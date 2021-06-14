@@ -5,7 +5,7 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
-const navigation = ["Dashboard", "Team", "Projects", "Calendar", "Reports"];
+const navigation = ["ዋና", "ምድብ", "የቅርብ ጊዜ", "ሁሉም ምክሮች", "ተወዳጆች"];
 const profile = ["Your Profile", "Settings", "Sign out"];
 
 function classNames(...classes) {
