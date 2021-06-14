@@ -6,7 +6,6 @@ import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
 const navigation = ["ዋና", "ምድብ", "የቅርብ ጊዜ", "ሁሉም ምክሮች", "ተወዳጆች"];
-const profile = ["Your Profile", "Settings", "Sign out"];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -22,7 +21,7 @@ export default function Header() {
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
         <div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
                 <Link to="/Landing">
@@ -126,11 +125,6 @@ export default function Header() {
                     )}
                   </Menu>
 
-                  <button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-3 relative">
                     {({ open }) => (
@@ -154,27 +148,7 @@ export default function Header() {
                           leave="transition ease-in duration-75"
                           leaveFrom="transform opacity-100 scale-100"
                           leaveTo="transform opacity-0 scale-95"
-                        >
-                          <Menu.Items
-                            static
-                            className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                          >
-                            {profile.map((item) => (
-                              <Menu.Item key={item}>
-                                {({ active }) => (
-                                  <div
-                                    className={classNames(
-                                      active ? "bg-gray-100" : "",
-                                      "block px-4 py-2 text-sm text-gray-700"
-                                    )}
-                                  >
-                                    {item}
-                                  </div>
-                                )}
-                              </Menu.Item>
-                            ))}
-                          </Menu.Items>
-                        </Transition>
+                        ></Transition>
                       </>
                     )}
                   </Menu>
@@ -187,15 +161,17 @@ export default function Header() {
                   </div>
                   <input
                     type="text"
-                    className="pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none"
-                    placeholder="Search anything..."
+                    width="150"
+                    height="40"
+                    className="p-2 rounded-lg z-0 focus:shadow focus:outline-none"
+                    placeholder="Search Title"
                     value={query}
                     onChange={handleChange}
                   />
                   <Link to={`/ViewMore/Search?query=${query}`}>
                     <button className="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600">
                       Search
-                    </button>{" "}
+                    </button>
                   </Link>
                 </form>
               </div>
@@ -313,26 +289,9 @@ export default function Header() {
 
                 <div className="ml-3">
                   <div className="text-base font-medium leading-none text-white">
-                    Tom Cook
-                  </div>
-                  <div className="text-sm font-medium leading-none text-gray-400">
-                    tom@example.com
+                    +251-912-00-00-00
                   </div>
                 </div>
-                <button className="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="mt-3 px-2 space-y-1">
-                {profile.map((item) => (
-                  <div
-                    key={item}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
-                  >
-                    {item}
-                  </div>
-                ))}
               </div>
             </div>
           </Disclosure.Panel>
