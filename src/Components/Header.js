@@ -12,11 +12,11 @@ function classNames(...classes) {
 export default function Header() {
   const history = useHistory();
   const onSearch = (i) => {
-    console.log(i);
     history.push({
       pathname: `/ViewMore/Search`,
       search: `?query=${i}`,
     });
+    window.location.reload();
   };
   const [query, setQuery] = useState("");
   const handleChange = (e) => {
