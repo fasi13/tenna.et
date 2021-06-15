@@ -11,11 +11,11 @@ export default function Landing() {
   return (
     <div>
       <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+        <div className="max-w-7xl mx-auto py-3 px-4 sm:px-3 lg:px-6">
+          <h1 className="text-3xl font-bold text-gray-900">ዋና ገጽ</h1>
         </div>
       </header>
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto py-2 sm:px-6 lg:px-8">
         <Carousal />
         <HorizontalList />
       </main>

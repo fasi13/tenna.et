@@ -10,13 +10,18 @@ const data2 = data
 const data3 = data
   .sort((a, b) => new Date(b.datePosted) - new Date(a.datePosted))
   .slice(0, data.length);
-
+let title = "";
 const assignToList = () => {
   const idd = window.location.pathname.split("/").pop();
 
-  if ("Mostly-Viewed" === idd) allList = data2;
-  else if ("Current" === idd) allList = data3;
-  else if ("Favorite" === idd) {
+  if ("Mostly-Viewed" === idd) {
+    allList = data2;
+    title = "በብዛት የታዩ";
+  } else if ("Current" === idd) {
+    allList = data3;
+    title = "የቅርብ ጊዜ";
+  } else if ("Favorite" === idd) {
+    title = "ተወዳጆች";
     let data4 = [{}];
     let favList = [];
     if (localStorage.getItem("favList"))
@@ -40,6 +45,7 @@ const assignToList = () => {
     }
     allList = data5;
   }
+  // window.location.reload();
 };
 export default function ViewMore() {
   useLayoutEffect(() => {
@@ -47,6 +53,11 @@ export default function ViewMore() {
   });
   return (
     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-3 px-4 sm:px-3 lg:px-6">
+          <h1 className="text-3xl font-bold text-gray-900">{title}</h1>
+        </div>
+      </header>
       {assignToList()}
       {allList?.map((i) => {
         return (
