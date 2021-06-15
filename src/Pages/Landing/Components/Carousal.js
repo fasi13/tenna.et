@@ -81,6 +81,7 @@ export default function Carousal() {
                       background: "#728C99",
                       display: "inline",
                       color: "white",
+                      lineHeight: "50px",
                     }}
                   >
                     {i.title}
