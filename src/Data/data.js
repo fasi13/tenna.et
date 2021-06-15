@@ -244,7 +244,7 @@ const data = [
     datePosted: "Thu Jun 9 2021 19:21:13",
   },
   {
-    id: "21",
+    id: "5",
     title: "የስኳር እጥረት",
     imageURL: "adasds",
     category: "ጠቅላላ ጤንነት",

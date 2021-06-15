@@ -12,7 +12,7 @@ export default function Carousal() {
     });
   };
   return (
-    <div>
+    <div style={{ textAlign: "-webkit-center" }}>
       <Carousel
         additionalTransfrom={0}
         arrows

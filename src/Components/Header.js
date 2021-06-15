@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import { Link } from "react-router-dom";
-
-const navigation = ["ዋና", "ምድብ", "የቅርብ ጊዜ", "ሁሉም ምክሮች", "ተወዳጆች"];
-
+import { Link, NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Header() {
+  const history = useHistory();
+  const onSearch = (i) => {
+    console.log(i);
+    history.push({
+      pathname: `/ViewMore/Search`,
+      search: `?query=${i}`,
+    });
+  };
   const [query, setQuery] = useState("");
   const handleChange = (e) => {
     setQuery(e?.target?.value);
@@ -35,28 +41,37 @@ export default function Header() {
                 </Link>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    {navigation.map((item, itemIdx) =>
-                      itemIdx === 0 ? (
-                        <Fragment key={itemIdx}>
-                          {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
+                    {
+                      <Fragment>
+                        {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
 
-                          <Link to="/Landing">
-                            <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
-                              {item}
-                            </div>
-                          </Link>
-                        </Fragment>
-                      ) : (
-                        <Link to="/Landing">
-                          <div
-                            key={item}
-                            className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                          >
-                            {item}
+                        <NavLink to="/Landing">
+                          <div className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
+                            ዋና
                           </div>
-                        </Link>
-                      )
-                    )}
+                        </NavLink>
+                        <NavLink to="/Landing">
+                          <div className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                            ምድብ
+                          </div>
+                        </NavLink>
+                        <NavLink to="/ViewMore/Current">
+                          <div className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                            የቅርብ ጊዜ
+                          </div>
+                        </NavLink>
+                        <NavLink to="/Landing">
+                          <div className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                            ሁሉም ምክሮች
+                          </div>
+                        </NavLink>
+                        <NavLink to="/ViewMore/Favorite">
+                          <div className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                            ተወዳጆች
+                          </div>
+                        </NavLink>
+                      </Fragment>
+                    }
                   </div>
                 </div>
               </div>
@@ -156,25 +171,27 @@ export default function Header() {
                 </div>
               </div>
               <div>
-                <form>
-                  <div className="">
-                    <i className="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>{" "}
-                  </div>
-                  <input
-                    type="text"
-                    width="150"
-                    height="40"
-                    className="p-2 rounded-lg z-0 focus:shadow focus:outline-none"
-                    placeholder="Search Title"
-                    value={query}
-                    onChange={handleChange}
-                  />
-                  <Link to={`/ViewMore/Search?query=${query}`}>
-                    <button className="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600">
-                      Search
-                    </button>
-                  </Link>
-                </form>
+                <div className="">
+                  <i className="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>{" "}
+                </div>
+                <input
+                  type="text"
+                  width="150"
+                  height="40"
+                  className="p-2 rounded-lg z-0 focus:shadow focus:outline-none"
+                  placeholder="Search Title"
+                  value={query}
+                  onChange={handleChange}
+                />
+
+                <button
+                  className="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600"
+                  onClick={() => {
+                    onSearch(query);
+                  }}
+                >
+                  Search
+                </button>
               </div>
               <div className="-mr-2 flex md:hidden">
                 {/* Mobile menu button */}
@@ -192,27 +209,35 @@ export default function Header() {
 
           <Disclosure.Panel className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navigation.map((item, itemIdx) =>
-                itemIdx === 0 ? (
-                  <Fragment key={itemIdx}>
-                    {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <Link to="/Landing">
-                      <div className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
-                        {item}
-                      </div>
-                    </Link>
-                  </Fragment>
-                ) : (
-                  <Link to={item}>
-                    <div
-                      key={item}
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    >
-                      {item}
-                    </div>
-                  </Link>
-                )
-              )}
+              <Fragment>
+                {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
+                <NavLink to="/Landing">
+                  <div className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
+                    ዋና
+                  </div>
+                </NavLink>
+
+                <NavLink to="/Landing">
+                  <div className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    ምድብ
+                  </div>
+                </NavLink>
+                <NavLink to="/ViewMore/Current">
+                  <div className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    የቅርብ ጊዜ
+                  </div>
+                </NavLink>
+                <NavLink to="/Landing">
+                  <div className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    ሁሉም ምክሮች
+                  </div>
+                </NavLink>
+                <NavLink to="/ViewMore/Favorite">
+                  <div className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    ተወዳጆች
+                  </div>
+                </NavLink>
+              </Fragment>
             </div>
             <div className="pt-4 pb-3 pl-4 border-t border-gray-700">
               <Menu as="div" className="relative inline-block text-left">
