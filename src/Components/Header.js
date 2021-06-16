@@ -90,7 +90,7 @@ export default function Header() {
                       src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                       alt="Workflow"
                     />
-                    <span className="text-white text-xl pl-3">TENA</span>
+                    <span className="text-white text-xl pl-3">ጤና</span>
                   </div>
                 </Link>
                 <div className="hidden md:block">
