@@ -6,6 +6,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import ViewMore from "./Pages/ViewMore/ViewMore";
 import Categories from "./Categories/Categories";
+import CategoriesDetail from "./Categories/CategoriesDetail";
 export default function App() {
   return (
     <Router>
@@ -32,6 +33,11 @@ export default function App() {
           <Route path="/Categories">
             <Header />
             <Categories />
+            <Footer />
+          </Route>
+          <Route path="/CategoriesDetail">
+            <Header />
+            <CategoriesDetail />
             <Footer />
           </Route>
         </Switch>

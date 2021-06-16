@@ -5,10 +5,28 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { Link, NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import "./header.css";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+// import React from "react";
+// import { Link } from "react-router-dom";
+// // reactstrap components
+// import {
+//   Button,
+//   Collapse,
+//   DropdownToggle,
+//   DropdownMenu,
+//   DropdownItem,
+//   UncontrolledDropdown,
+//   NavbarBrand,
+//   Navbar,
+//   NavItem,
+//   Nav,
+//   Container,
+//   UncontrolledTooltip,
+// } from "reactstrap";
 export default function Header() {
   const history = useHistory();
   const onSearch = (i) => {
@@ -16,13 +34,44 @@ export default function Header() {
       pathname: `/ViewMore/Search`,
       search: `?query=${i}`,
     });
-    window.location.reload();
+    // window.location.reload();
   };
   const [query, setQuery] = useState("");
   const handleChange = (e) => {
     setQuery(e?.target?.value);
   };
-
+  // const [collapseOpen, setCollapseOpen] = React.useState(false);
+  // const [navbarColor, setNavbarColor] = React.useState(
+  //   (document.documentElement.scrollTop > 499 || document.body.scrollTop) > 499
+  //     ? ""
+  //     : " navbar-transparent"
+  // );
+  // const [buyButtonColor, setBuyButtonColor] = React.useState(
+  //   (document.documentElement.scrollTop > 499 || document.body.scrollTop) > 499
+  //     ? "info"
+  //     : "neutral"
+  // );
+  // React.useEffect(() => {
+  //   const updateNavbarColor = () => {
+  //     if (
+  //       document.documentElement.scrollTop > 499 ||
+  //       document.body.scrollTop > 499
+  //     ) {
+  //       setNavbarColor("");
+  //       setBuyButtonColor("info");
+  //     } else if (
+  //       document.documentElement.scrollTop < 500 ||
+  //       document.body.scrollTop < 500
+  //     ) {
+  //       setNavbarColor(" navbar-transparent");
+  //       setBuyButtonColor("neutral");
+  //     }
+  //   };
+  //   window.addEventListener("scroll", updateNavbarColor);
+  //   return function cleanup() {
+  //     window.removeEventListener("scroll", updateNavbarColor);
+  //   };
+  // });
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -171,18 +220,10 @@ export default function Header() {
                   </Menu>
                 </div>
               </div>
-              <div>
-                <input
-                  type="text"
-                  className="p-2 rounded-lg z-0 focus:shadow focus:outline-none"
-                  placeholder="Search Title"
-                  value={query}
-                  onChange={handleChange}
-                  style={{ width: "100px" }}
-                />
-
+              <div className="search-box">
                 <button
-                  className="h-10 w-10 text-center text-white rounded-lg bg-red-500 hover:bg-red-600"
+                  className="btn-search text-center"
+                  style={{ textAlign: "-webkit-center" }}
                   onClick={() => {
                     onSearch(query);
                   }}
@@ -195,14 +236,15 @@ export default function Header() {
                     y="0px"
                     width="20"
                     height="20"
+                    fill="white"
                     viewBox="0 0 56.966 56.966"
                     style={{ textAlign: " -webkit-center" }}
                   >
                     <path
                       d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
-	s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
-	c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17
-	s-17-7.626-17-17S14.61,6,23.984,6z"
+    s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
+    c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17
+    s-17-7.626-17-17S14.61,6,23.984,6z"
                     />
                     <g></g>
                     <g></g>
@@ -221,7 +263,15 @@ export default function Header() {
                     <g></g>
                   </svg>
                 </button>
+                <input
+                  type="text"
+                  className="input-search"
+                  placeholder="Search Title"
+                  value={query}
+                  onChange={handleChange}
+                />
               </div>
+
               <div className="-mr-2 flex md:hidden">
                 {/* Mobile menu button */}
                 <Disclosure.Button className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -353,5 +403,119 @@ export default function Header() {
         </div>
       )}
     </Disclosure>
+    // <>
+    //   {collapseOpen ? (
+    //     <div
+    //       id="bodyClick"
+    //       onClick={() => {
+    //         document.documentElement.classList.toggle("nav-open");
+    //         setCollapseOpen(false);
+    //       }}
+    //     />
+    //   ) : null}
+    //   <Navbar className={"fixed-top" + navbarColor} color="white" expand="lg">
+    //     <Container>
+    //       <div className="navbar-translate">
+    //         <NavbarBrand to="/home" tag={Link} id="navbar-brand">
+    //           All Tech
+    //         </NavbarBrand>
+    //         <UncontrolledTooltip target="navbar-brand">
+    //           Designed by all Tech
+    //         </UncontrolledTooltip>
+    //         <button
+    //           onClick={() => {
+    //             document.documentElement.classList.toggle("nav-open");
+    //             setCollapseOpen(!collapseOpen);
+    //           }}
+    //           aria-expanded={collapseOpen}
+    //           className="navbar-toggler"
+    //         >
+    //           <span className="navbar-toggler-bar top-bar"></span>
+    //           <span className="navbar-toggler-bar middle-bar"></span>
+    //           <span className="navbar-toggler-bar bottom-bar"></span>
+    //         </button>
+    //       </div>
+    //       <Collapse isOpen={collapseOpen} navbar>
+    //         <Nav className="ml-auto" id="ceva" navbar>
+    //           <UncontrolledDropdown nav>
+    //             <DropdownToggle
+    //               caret
+    //               color="default"
+    //               data-toggle="dropdown"
+    //               href="#pablo"
+    //               id="navbarDropdownMenuLink1"
+    //               nav
+    //               onClick={(e) => e.preventDefault()}
+    //             >
+    //               <i className="now-ui-icons design_app"></i>
+    //               <p>መሰረታዊ መረጃዎች</p>
+    //             </DropdownToggle>
+    //             <DropdownMenu aria-labelledby="navbarDropdownMenuLink1" right>
+    //               <DropdownItem to="/infos" tag={Link}>
+    //                 <i className="now-ui-icons design_image"></i>
+    //                 ለአንድሮይድ ስልኮች
+    //               </DropdownItem>
+    //             </DropdownMenu>
+    //           </UncontrolledDropdown>
+    //           <UncontrolledDropdown nav>
+    //             <DropdownToggle
+    //               caret
+    //               color="default"
+    //               data-toggle="dropdown"
+    //               href="#pablo"
+    //               id="navbarDropdownMenuLink"
+    //               nav
+    //               onClick={(e) => e.preventDefault()}
+    //             >
+    //               <i
+    //                 aria-hidden={true}
+    //                 className="now-ui-icons files_paper"
+    //               ></i>
+    //               <p>የ ቴክ መረጃ ዜናዎች</p>
+    //             </DropdownToggle>
+    //             <DropdownMenu aria-labelledby="navbarDropdownMenuLink" right>
+    //               <DropdownItem to="/news" tag={Link}>
+    //                 <i className="now-ui-icons shopping_box"></i>
+    //                 ዜናዎች
+    //               </DropdownItem>
+    //             </DropdownMenu>
+    //           </UncontrolledDropdown>
+    //           <UncontrolledDropdown nav>
+    //             <DropdownToggle
+    //               caret
+    //               color="default"
+    //               data-toggle="dropdown"
+    //               href="#pablo"
+    //               id="navbarDropdownMenuLink"
+    //               nav
+    //               onClick={(e) => e.preventDefault()}
+    //             >
+    //               <i
+    //                 aria-hidden={true}
+    //                 className="now-ui-icons design_image"
+    //               ></i>
+    //               <p>የ ዩቲዩብ ቪድዮዎች</p>
+    //             </DropdownToggle>
+    //             <DropdownMenu aria-labelledby="navbarDropdownMenuLink" right>
+    //               <DropdownItem tag={Link} to="/vedio-link">
+    //                 <i className="now-ui-icons business_bulb-63"></i>
+    //                 ቪድዮዎች
+    //               </DropdownItem>
+    //             </DropdownMenu>
+    //           </UncontrolledDropdown>
+    //           <NavItem>
+    //             <Button
+    //               className="nav-link btn-default"
+    //               color={buyButtonColor}
+    //               href="#pablo"
+    //             >
+    //               <p>Contact Us</p>
+    //             </Button>
+    //           </NavItem>
+    //         </Nav>
+    //       </Collapse>
+    //     </Container>
+    //   </Navbar>
+    // </>
   );
 }
