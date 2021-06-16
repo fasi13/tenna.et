@@ -61,89 +61,91 @@ export default function ViewMore() {
       </header>
       {assignToList()}
       {allList?.map((i) => {
-        return (
-          <div
-            key={i.id}
-            className=" justify-between m-6 "
-            style={{ placeContent: "center" }}
-          >
-            <Link to={`/ListPage/${i.id}`}>
-              <div className="flex flex-col h-full max-w-lg mx-auto bg-gray-800 rounded-lg">
-                <img
-                  className="rounded-lg rounded-b-none"
-                  src={i.imageURL}
-                  alt="thumbnail"
-                  loading="lazy"
-                />
-                <div className="flex justify-between -mt-4 px-4 ">
-                  <span className="inline-block ring-4 bg-red-500 ring-gray-800 rounded-full text-sm font-medium tracking-wide text-gray-100 px-3 pt-0.5">
-                    {i.category}
-                  </span>
-                  <span className="flex h-min space-x-1 items-center rounded-full text-gray-400 bg-gray-800 py-1 px-2 text-xs font-medium">
-                    <svg
-                      version="1.1"
-                      id="Capa_1"
-                      width="18px"
-                      height="20px"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 469.333 469.333"
-                      fill="#3B82E4"
-                    >
-                      <g>
+        if (i.id)
+          return (
+            <div
+              key={i.id}
+              className=" justify-between m-6 "
+              style={{ placeContent: "center" }}
+            >
+              <Link to={`/ListPage/${i.id}`}>
+                <div className="flex flex-col h-full max-w-lg mx-auto bg-gray-800 rounded-lg">
+                  <img
+                    className="rounded-lg rounded-b-none"
+                    src={i.imageURL}
+                    alt="thumbnail"
+                    loading="lazy"
+                  />
+                  <div className="flex justify-between -mt-4 px-4 ">
+                    <span className="inline-block ring-4 bg-red-500 ring-gray-800 rounded-full text-sm font-medium tracking-wide text-gray-100 px-3 pt-0.5">
+                      {i.category}
+                    </span>
+                    <span className="flex h-min space-x-1 items-center rounded-full text-gray-400 bg-gray-800 py-1 px-2 text-xs font-medium">
+                      <svg
+                        version="1.1"
+                        id="Capa_1"
+                        width="18px"
+                        height="20px"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 469.333 469.333"
+                        fill="#3B82E4"
+                      >
                         <g>
                           <g>
-                            <path d="M234.667,170.667c-35.307,0-64,28.693-64,64s28.693,64,64,64s64-28.693,64-64S269.973,170.667,234.667,170.667z" />
-                            <path
-                              d="M234.667,74.667C128,74.667,36.907,141.013,0,234.667c36.907,93.653,128,160,234.667,160
+                            <g>
+                              <path d="M234.667,170.667c-35.307,0-64,28.693-64,64s28.693,64,64,64s64-28.693,64-64S269.973,170.667,234.667,170.667z" />
+                              <path
+                                d="M234.667,74.667C128,74.667,36.907,141.013,0,234.667c36.907,93.653,128,160,234.667,160
 				c106.773,0,197.76-66.347,234.667-160C432.427,141.013,341.44,74.667,234.667,74.667z M234.667,341.333
 				c-58.88,0-106.667-47.787-106.667-106.667S175.787,128,234.667,128s106.667,47.787,106.667,106.667
 				S293.547,341.333,234.667,341.333z"
-                            />
+                              />
+                            </g>
                           </g>
                         </g>
-                      </g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                      <g></g>
-                    </svg>
-                    <p className="text-blue-500 font-semibold text-xs">
-                      {i.seenValue}
-                    </p>
-                  </span>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                      </svg>
+                      <p className="text-blue-500 font-semibold text-xs">
+                        {i.seenValue}
+                      </p>
+                    </span>
+                  </div>
+                  <div className="py-2 px-4 ">
+                    <h1 className="text-xl font-medium leading-6 tracking-wide text-gray-300 hover:text-blue-500 cursor-pointer">
+                      {i.title}
+                    </h1>
+                  </div>
+                  <div className="px-4 space-y-2  border-t border-gray-700 pt-2 pb-4 mx-2">
+                    <div
+                      className="text-gray-400 font-normal leading-5 tracking-wide overflow-ellipsis	"
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          i.detail?.length > 155
+                            ? i.detail.substr(0, 155 - 1) +
+                              " &hellip;[Read More]"
+                            : i.detail,
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="py-2 px-4 ">
-                  <h1 className="text-xl font-medium leading-6 tracking-wide text-gray-300 hover:text-blue-500 cursor-pointer">
-                    {i.title}
-                  </h1>
-                </div>
-                <div className="px-4 space-y-2  border-t border-gray-700 pt-2 pb-4 mx-2">
-                  <div
-                    className="text-gray-400 font-normal leading-5 tracking-wide overflow-ellipsis	"
-                    dangerouslySetInnerHTML={{
-                      __html:
-                        i.detail?.length > 155
-                          ? i.detail.substr(0, 155 - 1) + " &hellip;[Read More]"
-                          : i.detail,
-                    }}
-                  />
-                </div>
-              </div>
-            </Link>
-          </div>
-        );
+              </Link>
+            </div>
+          );
       })}
     </div>
   );
