@@ -51,7 +51,7 @@ export default function HorizontalList() {
             </div>
 
             <div className="flex overflow-x-scroll pb-4 hide-scroll-bar">
-              <div className="flex flex-nowrap  px-8">
+              <div className="flex flex-nowrap  pr-6 pl-2">
                 {allList[0]?.id !== undefined ? (
                   allList?.map((i) => {
                     return (
@@ -64,6 +64,7 @@ export default function HorizontalList() {
                                   src={i.imageURL}
                                   alt="Cover_Image"
                                   className="w-full object-cover object-center rounded-lg shadow-md"
+                                  style={{ width: "300px", height: "250px" }}
                                 />
                                 <div className="relative px-4 -mt-16  ">
                                   <div className="bg-white p-6 rounded-lg shadow-lg">
