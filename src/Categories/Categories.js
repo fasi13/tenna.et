@@ -21,14 +21,33 @@ export default function Categories() {
   //   console.log(categoryList);
   // const cat
   return (
-    <div className="flex flex-wrap grid grid-cols-2 gap-3 ">
-      {uniqueCategory.map((i, idx) => {
-        return (
-          <Link key={idx} to={`/CategoriesDetail?id=${idx}`}>
-            <div className="bg-red-200 h-32 text-center">{i}</div>
-          </Link>
-        );
-      })}
+    <div className="h-screen">
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-3 px-4 sm:px-3 lg:px-6">
+          <h1 className="text-3xl font-bold text-gray-900">ምድቦች</h1>
+        </div>
+      </header>
+      <div className="flex flex-wrap grid grid-cols-2 gap-3 ">
+        {uniqueCategory.map((i, idx) => {
+          return (
+            <Link key={idx} to={`/CategoriesDetail?id=${idx}`}>
+              <div className="flex flex-col h-full max-w-lg mx-auto bg-gray-800 rounded-lg">
+                <img
+                  className="rounded-lg rounded-b-none"
+                  src={i.imageURL}
+                  alt="thumbnail"
+                  loading="lazy"
+                />
+                <div className="py-2 px-4 ">
+                  <h1 className="text-xl font-medium leading-6 tracking-wide text-gray-300 hover:text-blue-500 cursor-pointer">
+                    {i}
+                  </h1>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

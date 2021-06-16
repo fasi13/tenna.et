@@ -35,6 +35,7 @@ const assignToList = () => {
     }
     allList = data4;
   } else if ("Search" === idd) {
+    title = "የፍለጋ ውጤት";
     let data5 = [{}];
     let url = new URL(window.location);
     let c = url.searchParams.get("query");

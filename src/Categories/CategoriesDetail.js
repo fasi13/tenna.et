@@ -26,6 +26,7 @@ export default function CategoriesDetail() {
     if (uniqueCategory[c] === data[j].category) byCategory.push(data[j]);
   }
   console.log(byCategory);
+  byCategory.shift();
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   });
@@ -33,13 +34,15 @@ export default function CategoriesDetail() {
     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto py-3 px-4 sm:px-3 lg:px-6">
-          <h1 className="text-3xl font-bold text-gray-900">ምድቦች</h1>
+          <h1 className="text-3xl font-bold text-gray-900">
+            {uniqueCategory[c]} ምድቦች
+          </h1>
         </div>
       </header>
-      {byCategory?.map((i) => {
+      {byCategory?.map((i, idx) => {
         return (
           <div
-            key={i.id}
+            key={idx}
             className=" justify-between m-6 "
             style={{ placeContent: "center" }}
           >

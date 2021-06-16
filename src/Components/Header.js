@@ -30,6 +30,10 @@ function classNames(...classes) {
 export default function Header() {
   const history = useHistory();
   const onSearch = (i) => {
+    let url = new URL(window.location);
+    let c = url.searchParams.get("query");
+    console.log(c);
+
     history.push({
       pathname: `/ViewMore/Search`,
       search: `?query=${i}`,
@@ -100,7 +104,7 @@ export default function Header() {
                             ዋና
                           </div>
                         </NavLink>
-                        <NavLink to="/Landing">
+                        <NavLink to="/Categories">
                           <div className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                             ምድብ
                           </div>
@@ -296,7 +300,7 @@ export default function Header() {
                   </div>
                 </NavLink>
 
-                <NavLink to="/Landing">
+                <NavLink to="/Categories">
                   <div className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                     ምድብ
                   </div>
