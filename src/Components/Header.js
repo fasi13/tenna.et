@@ -77,7 +77,7 @@ export default function Header() {
   //   };
   // });
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-800 sticky top-0 z-10">
       {({ open }) => (
         <div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -391,7 +391,7 @@ export default function Header() {
                 <div className="flex-shrink-0">
                   <img
                     className="h-10 w-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    src="https://avatars.githubusercontent.com/u/523141?s=400&v=4"
                     alt=""
                   />
                 </div>

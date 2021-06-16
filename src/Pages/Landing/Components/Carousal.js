@@ -15,9 +15,9 @@ export default function Carousal() {
     <div style={{ textAlign: "-webkit-center" }}>
       <Carousel
         additionalTransfrom={0}
-        arrows
+        arrows={false}
         autoPlay
-        autoPlaySpeed={30000}
+        autoPlaySpeed={9000}
         centerMode={false}
         className=""
         containerClass="container"
