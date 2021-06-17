@@ -12,7 +12,7 @@ const data3 = data
   .slice(0, data.length);
 let title = "";
 const assignToList = () => {
-  const idd = window.location.pathname.split("/").pop();
+  const idd = "Favorite";
 
   if ("Mostly-Viewed" === idd) {
     allList = data2;
@@ -48,7 +48,7 @@ const assignToList = () => {
   }
   // window.location.reload();
 };
-export default function ViewMore() {
+export default function Favorites() {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   });

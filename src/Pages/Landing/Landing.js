@@ -2,10 +2,10 @@
 import "./landing.css";
 import Carousal from "./Components/Carousal";
 import HorizontalList from "./Components/HorizontalList";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 
 export default function Landing() {
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   });
   return (

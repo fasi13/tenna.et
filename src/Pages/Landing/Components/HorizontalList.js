@@ -39,15 +39,39 @@ export default function HorizontalList() {
               <span className="text-2xl font-bold text-gray-900 px-4">
                 {titles[index]}
               </span>
-              <Link to={`/ViewMore/${titles[index]}`}>
-                <button
-                  className="bg-gray-800 p-1 rounded-full text-white hover:text-white
+              {index === 0 ? (
+                <Link to={`/MostlyViewed`}>
+                  <button
+                    className="bg-gray-800 p-1 rounded-full text-white hover:text-white
             focus:outline-none focus:ring-2 focus:ring-offset-2
             focus:ring-offset-gray-800 focus:ring-white text-md font-bold px-4"
-                >
-                  ተጨማሪ
-                </button>
-              </Link>
+                  >
+                    ተጨማሪ
+                  </button>
+                </Link>
+              ) : null}
+              {index === 1 ? (
+                <Link to={`/Current`}>
+                  <button
+                    className="bg-gray-800 p-1 rounded-full text-white hover:text-white
+            focus:outline-none focus:ring-2 focus:ring-offset-2
+            focus:ring-offset-gray-800 focus:ring-white text-md font-bold px-4"
+                  >
+                    ተጨማሪ
+                  </button>
+                </Link>
+              ) : null}
+              {index === 2 ? (
+                <Link to={`/Favorites`}>
+                  <button
+                    className="bg-gray-800 p-1 rounded-full text-white hover:text-white
+            focus:outline-none focus:ring-2 focus:ring-offset-2
+            focus:ring-offset-gray-800 focus:ring-white text-md font-bold px-4"
+                  >
+                    ተጨማሪ
+                  </button>
+                </Link>
+              ) : null}
             </div>
 
             <div className="flex overflow-x-scroll pb-4 hide-scroll-bar">

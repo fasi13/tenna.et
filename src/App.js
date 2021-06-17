@@ -4,9 +4,11 @@ import Home from "./Pages/Home/Home";
 import ListPage from "./Pages/List/List";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import ViewMore from "./Pages/ViewMore/ViewMore";
+import MostlyViewed from "./Pages/ViewMore/MostlyViewed";
 import Categories from "./Categories/Categories";
 import CategoriesDetail from "./Categories/CategoriesDetail";
+import Current from "./Pages/ViewMore/Current";
+import Favorites from "./Pages/ViewMore/Favorites";
 export default function App() {
   return (
     <Router>
@@ -25,9 +27,19 @@ export default function App() {
             <ListPage />
             <Footer />
           </Route>
-          <Route path="/ViewMore">
+          <Route path="/Favorites">
             <Header />
-            <ViewMore />
+            <Favorites />
+            <Footer />
+          </Route>
+          <Route path="/MostlyViewed">
+            <Header />
+            <MostlyViewed />
+            <Footer />
+          </Route>
+          <Route path="/Current">
+            <Header />
+            <Current />
             <Footer />
           </Route>
           <Route path="/Categories">
